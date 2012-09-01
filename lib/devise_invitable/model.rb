@@ -158,7 +158,7 @@ module Devise
 
         # Deliver the invitation email
         def deliver_invitation
-          send_devise_notification(:invitation_instructions)
+          Devise.mailer.send(:invitation_instructions, self).deliver
         end
 
         # Checks if the invitation for the user is within the limit time.
